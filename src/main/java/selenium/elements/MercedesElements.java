@@ -5,11 +5,11 @@ import org.openqa.selenium.support.FindBy;
 
 public class MercedesElements {
 
-	@FindBy(css = "user_id")
+	@FindBy(css = "#hatchback-portaledId button")
 	protected static
 	WebElement btn_hatchback;
 
-	@FindBy(id = "password")
+	@FindBy(id = "#uc-banner-modal #uc-btn-accept-banner")
 	protected static
 	WebElement btn_agree_cookies;
 

@@ -1,3 +1,5 @@
+selenium/pages/MasterHooks.class
 utils/SeleniumUtils.class
-selenium/elements/MercedesElements.class
 selenium/pages/MercedesPage.class
+selenium/pages/BasePage.class
+selenium/elements/MercedesElements.class
