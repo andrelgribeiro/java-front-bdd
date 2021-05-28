@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="runner.Runner" time="38.019" errors="0" skipped="1">
+<testsuite tests="1" failures="0" name="runner.Runner" time="48.337" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7"/>
@@ -58,37 +58,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="Validar opcoes da mercedes" name="Testar iframe na pagina da mercedes" time="38.019">
-    <skipped/>
-    <system-out>@mercedes
-Funcionalidade: Validar opcoes da mercedes
-
-  @mercedes
-  Cenario: Testar iframe na pagina da mercedes                    &amp;#27;[90m# src/test/resources/features/mercedes.feature:5&amp;#27;[0m
-----DRIVER: ChromeDriver: chrome on MAC (07aea06b4e701c7b0bf48e9661b42c4f)
-----DRIVER: ChromeDriver: chrome on MAC (07aea06b4e701c7b0bf48e9661b42c4f)
-    &amp;#27;[32mDado &amp;#27;[0m&amp;#27;[32mque eu acesse a pagina da mercedes e click em hatchbacks&amp;#27;[0m &amp;#27;[90m# MercedesSteps.java:28&amp;#27;[0m
-    &amp;#27;[32mQuando &amp;#27;[0m&amp;#27;[32mselecionar o modelo A-class&amp;#27;[0m                            &amp;#27;[90m# MercedesSteps.java:34&amp;#27;[0m
-    &amp;#27;[32mE &amp;#27;[0m&amp;#27;[32mselecionar a opcao build your car&amp;#27;[0m                           &amp;#27;[90m# MercedesSteps.java:38&amp;#27;[0m
-    &amp;#27;[33mE &amp;#27;[0m&amp;#27;[33mfiltrar por combustivel disel&amp;#27;[0m                               &amp;#27;[90m# null&amp;#27;[0m
-    &amp;#27;[36mEntão &amp;#27;[0m&amp;#27;[36mcrio e salvo o print&amp;#27;[0m                                    &amp;#27;[90m# MercedesSteps.java:42&amp;#27;[0m
-</system-out>
-    <system-err>mai. 27, 2021 6:23:15 PM cucumber.runtime.filter.TagExpressionOld isOldTagExpression
-ADVERTÊNCIA: Found tags option &apos;@mercedes, @mercedesUK, @mercedesSA&apos;. Support for &apos;@tag1,@tag2&apos; will be removed from the next release of Cucumber-JVM. Please use &apos;@tag or @tag2&apos; instead
-SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Starting ChromeDriver 89.0.4389.23 (61b08ee2c50024bab004e48d2b1b083cdbdac579-refs/branch-heads/4389@{#294}) on port 6353
-Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully.
-[1622150598.486][WARNING]: This version of ChromeDriver has not been tested with Chrome version 90.
-mai. 27, 2021 6:23:18 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFORMAÇÕES: Detected dialect: W3C
-mai. 27, 2021 6:23:19 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-ADVERTÊNCIA: Unable to find an exact match for CDP version 90, so returning the closest version found: 86
-mai. 27, 2021 6:23:19 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-INFORMAÇÕES: Found CDP implementation for version 90 of 86
-</system-err>
-  </testcase>
+  <testcase classname="Validar opcoes da mercedes" name="Testar iframe na pagina da mercedes" time="48.337"/>
 </testsuite>

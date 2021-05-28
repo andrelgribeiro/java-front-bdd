@@ -38,10 +38,16 @@ public class MercedesSteps extends BasePage implements Pt {
         Quando("selecionar a opcao build your car", () ->{
             MercedesPage.selecionarCarroX();
         });
+
+        Quando("filtrar por combustivel disel", () -> {
+            MercedesPage.selecionarCombustivelDiesel();
+
+        });
         
         Então("crio e salvo o print", () ->{
             MercedesPage.criarPrint();
         });
+
         
     }
 }
