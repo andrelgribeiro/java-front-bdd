@@ -3,6 +3,7 @@ package utils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -36,6 +37,13 @@ public static String getDriverPath() {
             return "driver/geckodriver_mac";
         } else {
             return "driver/geckodriver_linux";
+        }
+    }
+    else if (browser.contains("safari")) {
+        if (OS.contains("mac")) {
+            return "";
+        } else {
+            return "driver/chromedriver.exe";
         }
     }
     else {
@@ -98,6 +106,11 @@ public static String getDriverPath() {
             driver.manage().deleteAllCookies();
             driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            return driver;
+        }
+        else if (browser.contains("safari")){
+            WebDriver driver = new SafariDriver();
+            driver.manage().window().maximize();
             return driver;
         }
         else {
