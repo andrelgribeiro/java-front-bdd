@@ -8,6 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import java.util.List;
+import java.util.Collections;
+import java.util.ArrayList;
+
+
+
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -58,8 +64,30 @@ public class MercedesPage extends BasePage {
     }
     
     public static void criarPrint() throws Exception {
-        SeleniumUtils.getScreenShot(driver, "filter-diesel.png");
-        Thread.sleep(15000);
+        SeleniumUtils.getScreenShot(driver, "results/filter-diesel.png");
+        Thread.sleep(2000);
+    }
+
+    public static void criarArquivoComparador() throws Exception {
+        WebElement slider = driver.findElement(By.cssSelector("cc-slave-slider .cc-slider__slides"));
+        ArrayList<String> ordenados = new ArrayList<>();
+        List<WebElement> precos  = new ArrayList<>();
+        int max = Integer.parseInt((driver.findElement(By.cssSelector(".cc-motorization-comparsion-status__info-text")).getText()).substring(0,2).trim());
+        Thread.sleep(1000);
+        for (int i = 1; i < max-3 ; i++) {
+            precos = slider.findElements(By.cssSelector(".cc-motorization-header__price"));
+            for (WebElement element : precos) {
+                System.out.println("Prices text:" + element.getText());
+                if (element.getText().contains("£")) {
+                    ordenados.add(element.getText());
+                }
+            }
+            driver.findElement(By.cssSelector(".cc-slider-buttons--design-circle .cc-slider-buttons__button--left")).click();
+            Thread.sleep(2000);
+        }
+        Collections.sort(ordenados);
+        System.out.println("Ordereds Prices text:" + ordenados);
+        SeleniumUtils.writeFilePriceResult("The min and max prices are: " + ordenados.get(0) + " - " + ordenados.get(ordenados.size()-1));
         driver.close();
     }
 

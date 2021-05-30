@@ -8,3 +8,4 @@ Funcionalidade: Validar opcoes da mercedes
     E selecionar a opcao build your car
     E filtrar por combustivel disel
     Então crio e salvo o print
+    E salvo os precos da lista filtrada por Diesel

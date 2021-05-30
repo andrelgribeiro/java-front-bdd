@@ -11,6 +11,8 @@ import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.TakesScreenshot;
 import java.io.File;
 import java.io.IOException;
+import java.io.FileWriter;
+
 
 
 
@@ -49,10 +51,13 @@ public static String getDriverPath() {
     public static void getScreenShot(WebDriver driver, String fileName) {
         try {
             File f = new File(fileName);
+            f.getParentFile().mkdirs(); 
             if(!f.exists()){
                 f.createNewFile();
             }else{
                 System.out.println("File already exists");
+                f.delete();
+                f.createNewFile();
             }
             File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             //The below method will save the screen shot in destination directory with name "screenshot.png"
@@ -60,6 +65,27 @@ public static String getDriverPath() {
         } catch (IOException e) {
             e.printStackTrace();
             }
+    }
+
+    public static void writeFilePriceResult(String results) {
+        File file = new File("results/price-results.txt");
+        file.getParentFile().mkdirs(); 
+        //Create the file
+        try {
+            if (file.createNewFile()) {
+                System.out.println("New Text File is created!");
+            } else {
+                System.out.println("File already exists.");
+                file.delete();
+                file.createNewFile();
+            }
+            //Write Content
+            FileWriter writer = new FileWriter(file);
+            writer.write(results);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static WebDriver iniciaDriver() {

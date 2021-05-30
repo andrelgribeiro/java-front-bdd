@@ -48,6 +48,10 @@ public class MercedesSteps extends BasePage implements Pt {
             MercedesPage.criarPrint();
         });
 
+        Então("salvo os precos da lista filtrada por Diesel", () ->{
+            MercedesPage.criarArquivoComparador();
+        });
+
         
     }
 }
