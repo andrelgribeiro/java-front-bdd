@@ -29,6 +29,7 @@ public class MercedesPage extends BasePage {
         driver.findElement(By.cssSelector("#uc-banner-modal #uc-btn-accept-banner")).click();
         Thread.sleep(2000);
         jse.executeScript("window.scrollBy(0,900)");
+        Thread.sleep(2000);
         driver.switchTo().frame("vmos-cont");
         driver.findElement(By.cssSelector("[role='list'] button:first-of-type")).click();
 
@@ -43,12 +44,12 @@ public class MercedesPage extends BasePage {
 
     public static void selecionarCarroX() throws Exception {
         driver.findElement(By.cssSelector(".vmos_m-GuR .vmos_3HxTq.undefined:first-of-type")).click();
-        Thread.sleep(10000);
+        Thread.sleep(15000);
     }
 
     public static void selecionarCombustivelDiesel() throws Exception {
         jse.executeScript("window.scrollBy(0,250)");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         jse.executeScript("window.scrollBy(0,250)");
         Thread.sleep(1000);
         driver.findElement(By.xpath("//label[contains(text(),'Diesel')]")).click();

@@ -2,6 +2,7 @@ package utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -23,15 +24,26 @@ public class SeleniumUtils {
 
     }
 
-public static String getChromeDriverPath() {
+public static String getDriverPath() {
     String OS = System.getProperty("os.name");
-
-    if (OS.contains("Window")) {
-        return "driver/chromedriver.exe";
-    } else if (OS.contains("Mac")) {
-        return "driver/chromedriver_mac";
-    } else {
-        return "driver/chromedriver_linux";
+    String browser = System.getProperty("browserOption");
+    if (browser.contains("firefox")) {
+        if (OS.contains("Window")) {
+            return "driver/geckodriver.exe";
+        } else if (OS.contains("Mac")) {
+            return "driver/geckodriver_mac";
+        } else {
+            return "driver/geckodriver_linux";
+        }
+    }
+    else {
+        if (OS.contains("Window")) {
+            return "driver/chromedriver.exe";
+        } else if (OS.contains("Mac")) {
+            return "driver/chromedriver_mac";
+        } else {
+            return "driver/chromedriver_linux";
+        }
     }
 }
     public static void getScreenShot(WebDriver driver, String fileName) {
@@ -51,15 +63,28 @@ public static String getChromeDriverPath() {
     }
 
     public static WebDriver iniciaDriver() {
-        System.setProperty("webdriver.chrome.driver", getChromeDriverPath());
-        ChromeOptions options = new ChromeOptions();
-		//options.addArguments("--headless");
-		options.addArguments("--disable-gpu");
-        options.addArguments("--disable-gpu");
-        options.addArguments("window-size=1400,800");
+        String browser = System.getProperty("browserOption");
 
-        WebDriver driver = new ChromeDriver(options);
-        return driver;
+        if (browser.contains("firefox")){
+            System.setProperty("webdriver.gecko.driver", getDriverPath());
+            WebDriver driver = new FirefoxDriver();
+            driver.manage().window().maximize();
+            driver.manage().deleteAllCookies();
+            driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            return driver;
+        }
+        else {
+            System.setProperty("webdriver.chrome.driver", getDriverPath());
+            ChromeOptions options = new ChromeOptions();
+            //options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--disable-gpu");
+            options.addArguments("window-size=1400,800");
+
+            WebDriver driver = new ChromeDriver(options);
+            return driver;
+        }
     }
 
     public static WebDriver getDriver() {
